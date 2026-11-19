@@ -1,0 +1,224 @@
+<!-- Page « Ressources » (Linktree MoneyRadar) · design V2d « Journal » choisi le 20/10/2026 · fragment injectable : tout scopé sous .mrlk.v1, responsive en @container, aucune police chargée, images de la médiathèque uniquement -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.mrlk.v1{
+  container-type:inline-size;
+  --bg:#07110F;--fg:#F2F6F5;--fg-2:#D6E1DD;--fg-3:#A9BDB8;--fg-4:#93A39F;--fg-5:#6F807C;
+  --teal:#00D7B2;--teal-ink:#06110F;--teal-soft:#7FF0D9;--gold:#E8C66B;
+  --line:rgba(255,255,255,.1);--line-2:rgba(255,255,255,.18);
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  background:var(--bg);color:var(--fg);line-height:1.5;font-size:15px;
+  -webkit-font-smoothing:antialiased;
+}
+.mrlk.v1 :where(*,*::before,*::after){box-sizing:border-box}
+.mrlk.v1 :where(h1,h2,h3,p,ul,li){margin:0;padding:0}
+.mrlk.v1 :where(ul){list-style:none}
+.mrlk.v1 :where(a){color:inherit;text-decoration:none}
+.mrlk.v1 :where(a:hover){color:#fff}
+.mrlk.v1 :where(img){display:block;max-width:100%;border:0}
+
+/* ---------- Hero ---------- */
+.mrlk.v1 .mrlk-hero{
+  position:relative;min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+  text-align:center;padding:60px 24px 22px;
+  background:var(--bg) url("https://moneyradar.org/wp-content/uploads/2026/10/score-financier-fond-hero-b-mobile.webp") 72% 50%/cover no-repeat;
+}
+.mrlk.v1 .mrlk-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,17,15,.1) 0%,rgba(7,17,15,.5) 50%,#07110F 100%)}
+.mrlk.v1 .mrlk-hero>*{position:relative}
+.mrlk.v1 .mrlk-glyph{width:76px;height:auto;margin-bottom:14px}
+.mrlk.v1 .mrlk-name{font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1;color:#fff}
+.mrlk.v1 .mrlk-tag{font-size:16px;color:#B9CEC8;line-height:1.45;max-width:300px;margin-top:10px}
+.mrlk.v1 .mrlk-social{display:flex;flex-wrap:wrap;justify-content:center;gap:0 20px;margin-top:16px;font-size:13px;font-weight:600}
+.mrlk.v1 .mrlk-social a{color:#E6EEEC;text-decoration:underline;text-underline-offset:5px;text-decoration-color:rgba(0,215,178,.6);padding:10px 0}
+
+/* ---------- Colonne ---------- */
+.mrlk.v1 .mrlk-col{max-width:620px;margin:0 auto;padding:4px 24px 24px}
+
+/* ---------- Score financier ---------- */
+.mrlk.v1 .mrlk-score{border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2);padding:22px 0 20px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.mrlk.v1 .mrlk-score-body{display:contents}
+.mrlk.v1 .mrlk-kicker{order:-1;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-soft)}
+.mrlk.v1 .l{display:none}
+.mrlk.v1 .mrlk-gauge{position:relative;width:156px;height:92px;margin-top:14px;flex:none}
+.mrlk.v1 .mrlk-gauge svg{display:block;width:100%;height:100%}
+.mrlk.v1 .mrlk-gauge-val{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:baseline;justify-content:center;gap:2px}
+.mrlk.v1 .mrlk-gauge-val b{font-size:44px;font-weight:800;line-height:1;letter-spacing:-.03em;color:#fff}
+.mrlk.v1 .mrlk-gauge-val span{font-size:14px;font-weight:600;color:#8FA29D}
+.mrlk.v1 .mrlk-score-title{font-size:26px;font-weight:800;line-height:1.12;letter-spacing:-.02em;color:#fff;margin-top:14px}
+.mrlk.v1 .mrlk-score-sub{font-size:13.5px;color:var(--fg-3);line-height:1.45;margin-top:8px}
+.mrlk.v1 .mrlk-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:16px;padding:14px 16px;border-radius:12px;background:var(--teal);color:var(--teal-ink);font-size:15.5px;font-weight:800;min-height:50px;transition:background-color .15s ease}
+.mrlk.v1 .mrlk-btn:hover{background:#3CE6C6;color:var(--teal-ink)}
+.mrlk.v1 .mrlk-score-note{font-size:11.5px;color:var(--fg-5);margin-top:10px}
+.mrlk.v1 .mrlk-score-note a{color:var(--teal-soft);font-weight:600}
+
+/* ---------- Sections ---------- */
+.mrlk.v1 .mrlk-h{padding:34px 0 12px}
+.mrlk.v1 .mrlk-h::before{content:"";display:block;width:28px;height:3px;background:var(--teal);margin-bottom:12px}
+.mrlk.v1 .mrlk-h.gold::before{background:var(--gold)}
+.mrlk.v1 .mrlk-h h2{display:inline;font-size:25px;font-weight:800;letter-spacing:-.02em;color:#fff;line-height:1.1}
+.mrlk.v1 .mrlk-h .mrlk-prem{display:inline-block;margin-left:10px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);vertical-align:middle}
+
+.mrlk.v1 .mrlk-row{display:flex;align-items:center;gap:14px;padding:12px 0;border-top:1px solid var(--line);transition:background-color .15s ease}
+.mrlk.v1 .mrlk-list .mrlk-row:last-child{border-bottom:1px solid var(--line)}
+.mrlk.v1 .mrlk-row:hover{background:rgba(255,255,255,.035)}
+.mrlk.v1 .mrlk-row img{flex:none;object-fit:cover}
+.mrlk.v1 .mrlk-row .mrlk-txt{flex:1;min-width:0}
+.mrlk.v1 .mrlk-row .mrlk-t{display:block;font-size:15px;font-weight:600}
+.mrlk.v1 .mrlk-row .mrlk-d{display:block;font-size:12.5px;color:var(--fg-4);margin-top:2px}
+.mrlk.v1 .mrlk-row .mrlk-ext{flex:none;width:16px;height:16px}
+.mrlk.v1 .mrlk-nl img{width:36px;height:36px;border-radius:50%}
+.mrlk.v1 .mrlk-off .mrlk-row{padding:0;gap:0}
+.mrlk.v1 .mrlk-off .mrlk-main{flex:1;min-width:0;display:flex;align-items:center;gap:14px;padding:12px 0}
+.mrlk.v1 .mrlk-off .mrlk-avis{flex:none;font-size:12px;font-weight:600;color:var(--fg-5);padding:12px 0 12px 12px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.25)}
+.mrlk.v1 .mrlk-off .mrlk-avis:hover{color:#fff;text-decoration-color:var(--teal)}
+.mrlk.v1 .mrlk-off img{width:32px;height:32px;border-radius:8px;background:#fff;object-fit:contain}
+.mrlk.v1 .mrlk-off img.cover{object-fit:cover}
+.mrlk.v1 .mrlk-off .mrlk-t{font-size:14.5px}
+.mrlk.v1 .mrlk-off .mrlk-t em{font-style:normal;color:var(--fg-4);font-weight:400}
+.mrlk.v1 .mrlk-promise{flex:none;font-size:12.5px;color:var(--teal);font-weight:600;white-space:nowrap}
+.mrlk.v1 .mrlk-art img{width:64px;height:44px;border-radius:6px}
+.mrlk.v1 .mrlk-art img.logo{object-fit:contain;background:#fff;padding:4px}
+.mrlk.v1 .mrlk-art .mrlk-t{font-size:15.5px;line-height:1.3}
+
+/* Macro Insider */
+.mrlk.v1 .mrlk-mi p{font-size:16px;line-height:1.5;color:var(--fg-2)}
+.mrlk.v1 .mrlk-mi-cta{display:flex;align-items:center;gap:14px;margin-top:14px}
+.mrlk.v1 .mrlk-mi-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;border:1px solid var(--gold);color:var(--gold);font-size:14px;font-weight:600;white-space:nowrap}
+.mrlk.v1 .mrlk-mi-btn:hover{background:rgba(232,198,107,.1);color:var(--gold)}
+.mrlk.v1 .mrlk-mi-alt{font-size:12.5px;color:var(--fg-3);text-decoration:underline;text-underline-offset:3px;line-height:1.35}
+
+/* Comparatifs */
+.mrlk.v1 .mrlk-cmp{font-size:14.5px;line-height:2.1;color:#C9D6D2}
+.mrlk.v1 .mrlk-cmp a{text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,.3)}
+.mrlk.v1 .mrlk-cmp a:hover{text-decoration-color:var(--teal)}
+.mrlk.v1 .mrlk-cmp i{font-style:normal;color:#4F605C;padding:0 4px}
+
+/* Pied */
+.mrlk.v1 .mrlk-foot{text-align:center;padding:26px 0 0}
+.mrlk.v1 .mrlk-foot a{font-size:13px;font-weight:600;color:var(--teal)}
+.mrlk.v1 .mrlk-foot p{font-size:11px;color:var(--fg-5);line-height:1.5;margin-top:10px}
+
+/* ---------- Ordinateur (colonne WP ≥ 700 px) ---------- */
+@container (min-width:700px){
+  .mrlk.v1 .mrlk-hero{min-height:420px;padding:70px 24px 30px;background-image:url("https://moneyradar.org/wp-content/uploads/2026/10/score-financier-fond-hero-b-desktop.webp");background-position:50% 40%}
+  .mrlk.v1 .mrlk-hero::before{background:linear-gradient(180deg,rgba(7,17,15,.15) 0%,rgba(7,17,15,.55) 50%,#07110F 100%)}
+  .mrlk.v1 .mrlk-glyph{width:84px;margin-bottom:16px}
+  .mrlk.v1 .mrlk-name{font-size:54px}
+  .mrlk.v1 .mrlk-tag{font-size:19px;max-width:460px;margin-top:12px}
+  .mrlk.v1 .mrlk-social{gap:28px;margin-top:20px;font-size:13.5px}
+  .mrlk.v1 .mrlk-social a{padding:8px 0}
+  .mrlk.v1 .mrlk-col{padding:6px 24px 56px}
+  .mrlk.v1 .mrlk-score{flex-direction:row;text-align:left;align-items:center;gap:30px;padding:26px 0 24px}
+  .mrlk.v1 .mrlk-gauge{width:170px;height:100px;margin-top:0}
+  .mrlk.v1 .mrlk-gauge-val b{font-size:48px}
+  .mrlk.v1 .mrlk-gauge-val span{font-size:15px}
+  .mrlk.v1 .mrlk-score-body{display:block;flex:1;min-width:0}
+  .mrlk.v1 .mrlk-kicker{order:0}
+  .mrlk.v1 .l{display:inline}
+  .mrlk.v1 .mrlk-score-title{font-size:30px;margin-top:8px}
+  .mrlk.v1 .mrlk-score-sub{font-size:14.5px}
+  .mrlk.v1 .mrlk-btn{display:inline-flex;width:auto;padding:13px 22px;font-size:15px;min-height:48px}
+  .mrlk.v1 .mrlk-score-note{font-size:12.5px;margin-top:12px}
+  .mrlk.v1 .mrlk-h{padding:38px 0 12px}
+  .mrlk.v1 .mrlk-h::before{width:32px}
+  .mrlk.v1 .mrlk-h h2{font-size:28px}
+  .mrlk.v1 .mrlk-row{gap:16px;padding:14px 0}
+  .mrlk.v1 .mrlk-nl img{width:40px;height:40px}
+  .mrlk.v1 .mrlk-row .mrlk-t{font-size:16px}
+  .mrlk.v1 .mrlk-row .mrlk-d{font-size:13px}
+  .mrlk.v1 .mrlk-off .mrlk-main{padding:13px 0;gap:16px}
+  .mrlk.v1 .mrlk-off .mrlk-avis{font-size:12.5px;padding-left:16px}
+  .mrlk.v1 .mrlk-off img{width:34px;height:34px}
+  .mrlk.v1 .mrlk-off .mrlk-t{font-size:15px}
+  .mrlk.v1 .mrlk-promise{font-size:13px}
+  .mrlk.v1 .mrlk-art img{width:84px;height:54px}
+  .mrlk.v1 .mrlk-art .mrlk-t{font-size:17px}
+  .mrlk.v1 .mrlk-mi{display:flex;align-items:center;gap:28px}
+  .mrlk.v1 .mrlk-mi p{flex:1;font-size:17px}
+  .mrlk.v1 .mrlk-mi-cta{flex:none;flex-direction:column;align-items:flex-start;gap:10px;margin-top:0}
+  .mrlk.v1 .mrlk-cmp{font-size:15px}
+  .mrlk.v1 .mrlk-foot{padding-top:28px}
+  .mrlk.v1 .mrlk-foot a{font-size:13.5px}
+  .mrlk.v1 .mrlk-foot p{font-size:11.5px}
+}
+</style>
+
+<div class="mrlk v1">
+
+  <div class="mrlk-hero">
+    <img class="mrlk-glyph" src="https://moneyradar.org/wp-content/uploads/2026/10/moneyradar-logo-filigrane-popup.webp" alt="" aria-hidden="true" width="300" height="257">
+    <h1 class="mrlk-name">MoneyRadar</h1>
+    <p class="mrlk-tag">Comparatifs, avis et simulateurs pour placer votre argent sans jargon.</p>
+    <div class="mrlk-social">
+      <a href="https://www.youtube.com/@moneyradar" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/moneyradar_fr/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://x.com/MoneyRadar_FR" target="_blank" rel="noopener">X</a>
+      <a href="https://www.linkedin.com/company/moneyradar/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://t.me/moneyradar_canal" target="_blank" rel="noopener">Telegram</a>
+    </div>
+  </div>
+
+  <div class="mrlk-col">
+
+    <div class="mrlk-score">
+      <div class="mrlk-gauge" aria-hidden="true">
+        <svg viewBox="0 0 156 92"><path d="M12 81.7 A66 66 0 0 1 23.3 47.1" fill="none" stroke="#FF6B7A" stroke-width="12" stroke-linecap="round"/><path d="M26 43.4 A66 66 0 0 1 55.4 22" fill="none" stroke="#FFB357" stroke-width="12"/><path d="M59.8 20.6 A66 66 0 0 1 96.2 20.6" fill="none" stroke="#7DB2FF" stroke-width="12"/><path d="M100.6 22 A66 66 0 0 1 130 43.4" fill="none" stroke="#00D7B2" stroke-width="12"/><path d="M132.7 47.1 A66 66 0 0 1 144 81.7" fill="none" stroke="#C7A2FF" stroke-width="12" stroke-linecap="round"/></svg>
+        <div class="mrlk-gauge-val"><b>?</b><span>/100</span></div>
+      </div>
+      <div class="mrlk-score-body">
+        <div class="mrlk-kicker">Nouveau · simulateur gratuit</div>
+        <h2 class="mrlk-score-title">Quel est votre score financier&nbsp;?</h2>
+        <p class="mrlk-score-sub">Une note sur 100 et votre niveau, de Fragile à Élite.</p>
+        <a class="mrlk-btn" href="https://moneyradar.org/simulateur-score-financier/?src=ressources">Je calcule mon score<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="mrlk-score-note">2 minutes · sans inscription · <a href="https://moneyradar.org/calculateurs-simulateurs-moneyradar/">Tous nos simulateurs →</a></div>
+      </div>
+    </div>
+
+    <div class="mrlk-h"><h2>Newsletters gratuites</h2></div>
+    <ul class="mrlk-list mrlk-nl">
+      <li><a class="mrlk-row" href="https://moneyradar.substack.com/" target="_blank" rel="noopener"><img src="https://moneyradar.org/wp-content/uploads/2026/03/newsletter-monerradar-logo.png" alt="" width="574" height="572"><span class="mrlk-txt"><span class="mrlk-t">MoneyRadar</span><span class="mrlk-d">Ce que les marchés préparent et comment en profiter</span></span><svg class="mrlk-ext" viewBox="0 0 24 24" fill="none" stroke="#6F807C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li><a class="mrlk-row" href="https://moneyradarcrypto.substack.com/" target="_blank" rel="noopener"><img src="https://moneyradar.org/wp-content/uploads/2026/03/Newsletter-Moneyradar-crypto.png" alt="" width="574" height="572"><span class="mrlk-txt"><span class="mrlk-t">Crypto</span><span class="mrlk-d">Les opportunités crypto que les autres ratent</span></span><svg class="mrlk-ext" viewBox="0 0 24 24" fill="none" stroke="#6F807C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+      <li><a class="mrlk-row" href="https://futureradar.substack.com/" target="_blank" rel="noopener"><img src="https://moneyradar.org/wp-content/uploads/2026/03/channels4_profile.jpg" alt="" width="400" height="400"><span class="mrlk-txt"><span class="mrlk-t">Future Radar</span><span class="mrlk-d">Les tendances tech et IA avant tout le monde</span></span><svg class="mrlk-ext" viewBox="0 0 24 24" fill="none" stroke="#6F807C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+    </ul>
+
+    <div class="mrlk-h gold"><h2>Macro Insider</h2><span class="mrlk-prem">Premium</span></div>
+    <div class="mrlk-mi">
+      <p>Investir comme un pro, avec la méthode des hedge funds. Une heure par mois.</p>
+      <div class="mrlk-mi-cta">
+        <a class="mrlk-mi-btn" href="https://moneyradar.org/lp4/macro-insider-opt">Voir la méthode<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="mrlk-mi-alt" href="https://moneyradar.org/lp4/macro-insider-opt">Masterclass offerte (45 min)</a>
+      </div>
+    </div>
+
+    <div class="mrlk-h"><h2>Nos meilleures offres</h2></div>
+    <ul class="mrlk-list mrlk-off">
+      <li class="mrlk-row"><a class="mrlk-main" href="https://moneyradar.org/go/xtb" target="_blank" rel="noopener"><img src="https://moneyradar.org/wp-content/uploads/2026/03/XTB-logo.png" alt="" width="264" height="266"><span class="mrlk-txt"><span class="mrlk-t">XTB <em>· <span class="l">meilleur </span>compte-titres</em></span></span><span class="mrlk-promise">1 action offerte<span class="l"> à l'ouverture</span></span></a><a class="mrlk-avis" href="https://moneyradar.org/bourse/xtb/">Avis</a></li>
+      <li class="mrlk-row"><a class="mrlk-main" href="https://moneyradar.org/go/trade-republic" target="_blank" rel="noopener"><img src="https://moneyradar.org/wp-content/uploads/2026/03/images.png" alt="" width="225" height="225"><span class="mrlk-txt"><span class="mrlk-t">Trade Republic <em>· <span class="l">meilleur </span>PEA</em></span></span><span class="mrlk-promise">1 € par ordre<span class="l">, 0 € en DCA</span></span></a><a class="mrlk-avis" href="https://moneyradar.org/bourse/trade-republic/">Avis</a></li>
+      <li class="mrlk-row"><a class="mrlk-main" href="https://moneyradar.org/go/revolut" target="_blank" rel="noopener"><img class="cover" src="https://moneyradar.org/wp-content/uploads/2026/03/F9rs-OIXAAA5S3e.jpg" alt="" width="1200" height="1200"><span class="mrlk-txt"><span class="mrlk-t">Revolut <em>· <span class="l">meilleure </span>carte bancaire</em></span></span><span class="mrlk-promise">20 € offerts</span></a><a class="mrlk-avis" href="https://moneyradar.org/banque/revolut/">Avis</a></li>
+      <li class="mrlk-row"><a class="mrlk-main" href="https://go.fundora.fr/moneyradar" target="_blank" rel="noopener"><img class="cover" src="https://moneyradar.org/wp-content/uploads/2026/03/fundoraclub_logo.jpeg" alt="" width="200" height="200"><span class="mrlk-txt"><span class="mrlk-t">Fundora <em>· private equity</em></span></span><span class="mrlk-promise">Dès 100 €</span></a><a class="mrlk-avis" href="https://moneyradar.org/private-equity/fundora/">Avis</a></li>
+      <li class="mrlk-row"><a class="mrlk-main" href="https://moneyradar.org/go/revolut-business" target="_blank" rel="noopener"><img src="https://moneyradar.org/wp-content/uploads/2026/03/images-1.png" alt="" width="225" height="225"><span class="mrlk-txt"><span class="mrlk-t">Revolut Business <em class="l">· meilleure banque pro</em></span></span><span class="mrlk-promise">80 € offerts</span></a><a class="mrlk-avis" href="https://moneyradar.org/banque/revolut-business/">Avis</a></li>
+      <li class="mrlk-row"><a class="mrlk-main" href="https://moneyradar.org/go/goldavenue" target="_blank" rel="noopener"><img src="https://moneyradar.org/wp-content/uploads/2026/03/0x0.png" alt="" width="200" height="200"><span class="mrlk-txt"><span class="mrlk-t">Gold Avenue <em class="l">· or et métaux</em></span></span><span class="mrlk-promise">30 € offerts<span class="l">, code MRADAR30</span></span></a><a class="mrlk-avis" href="https://moneyradar.org/investir-dans-l-or/gold-avenue/">Avis</a></li>
+    </ul>
+
+    <div class="mrlk-h"><h2>Nos comparatifs</h2></div>
+    <p class="mrlk-cmp">
+      <a href="https://moneyradar.org/bourse/meilleur-broker/">Meilleur broker</a><i>·</i><a href="https://moneyradar.org/bourse/pea/meilleur-pea/">Meilleur PEA</a><i>·</i><a href="https://moneyradar.org/banque/meilleure-banque-en-ligne/">Banque en ligne</a><i>·</i><a href="https://moneyradar.org/banque/meilleure-carte-bancaire/">Carte bancaire</a><i>·</i><a href="https://moneyradar.org/crypto/meilleure-plateforme-crypto/">Plateforme crypto</a><i>·</i><a href="https://moneyradar.org/assurance-vie/meilleure-assurance-vie/">Assurance vie</a><i>·</i><a href="https://moneyradar.org/bourse/compte-titres/">Compte-titres</a><i>·</i><a href="https://moneyradar.org/banque/meilleure-neobanque/">Néobanque</a><i>·</i><a href="https://moneyradar.org/banque/meilleure-banque-pro/">Banque pro</a><i>·</i><a href="https://moneyradar.org/bourse/meilleure-plateforme-trading/">Plateforme de trading</a><i>·</i><a href="https://moneyradar.org/banque/meilleur-per/">PER</a><i>·</i><a href="https://moneyradar.org/immobilier/scpi/meilleure-scpi/">SCPI</a><i>·</i><a href="https://moneyradar.org/crowdfunding/meilleure-platerforme-crowdfunding-immobilier/">Crowdfunding immobilier</a>
+    </p>
+
+    <div class="mrlk-h"><h2>À lire cette semaine</h2></div>
+    <ul class="mrlk-list mrlk-art">
+      <li><a class="mrlk-row" href="https://moneyradar.org/bourse/acheter-des-actions/action-spacex/"><img src="https://moneyradar.org/wp-content/uploads/2026/02/investir-space-x.jpg" alt="" width="1200" height="688"><span class="mrlk-txt"><span class="mrlk-t">Investir dans SpaceX : cours, avis et prévisions 2026</span></span></a></li>
+      <li><a class="mrlk-row" href="https://moneyradar.org/bourse/acheter-des-actions/action-take-two/"><img src="https://moneyradar.org/wp-content/uploads/2026/02/investir-gta-6-action-take-two.jpg" alt="" width="1200" height="688"><span class="mrlk-txt"><span class="mrlk-t">GTA 6 : faut-il acheter l'action Take-Two ?</span></span></a></li>
+      <li><a class="mrlk-row" href="https://moneyradar.org/bourse/meilleures-actions-dividende/"><img src="https://moneyradar.org/wp-content/uploads/2026/01/meilleures-actions-fort-dividende.jpg" alt="" width="1200" height="688"><span class="mrlk-txt"><span class="mrlk-t">Meilleures actions à dividende (PEA et US)</span></span></a></li>
+      <li><a class="mrlk-row" href="https://moneyradar.org/bourse/xtb/code-parrainage/"><img class="logo" src="https://moneyradar.org/wp-content/uploads/2026/03/XTB-logo.png" alt="" width="264" height="266"><span class="mrlk-txt"><span class="mrlk-t">XTB : une action gratuite avec le code promo et le parrainage</span></span></a></li>
+      <li><a class="mrlk-row" href="https://moneyradar.org/bourse/action-prometteuse/"><img src="https://moneyradar.org/wp-content/uploads/2025/06/meilleures-actions.jpg" alt="" width="1200" height="688"><span class="mrlk-txt"><span class="mrlk-t">Meilleures actions pas chères à fort potentiel</span></span></a></li>
+      <li><a class="mrlk-row" href="https://moneyradar.org/bourse/actions-or/"><img src="https://moneyradar.org/wp-content/uploads/2024/07/actions-or.jpg" alt="" width="1200" height="688"><span class="mrlk-txt"><span class="mrlk-t">Meilleures actions pour investir dans l'or</span></span></a></li>
+    </ul>
+
+    <div class="mrlk-foot">
+      <a href="https://moneyradar.org/">moneyradar.org</a>
+      <p>Investir comporte des risques. MoneyRadar ne donne pas de conseil en investissement. Les CFD sont des instruments complexes : 77 % des comptes particuliers perdent de l'argent chez XTB.</p>
+    </div>
+
+  </div>
+</div>
